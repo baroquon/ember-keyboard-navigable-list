@@ -9,21 +9,55 @@ export default Ember.Component.extend(EKMixin, {
   contentArray: [],
   hasLink: false,
   linkDirection: null,
+  sendItem: null,
+  afterLastItem: null,
   init(){
     this._super(...arguments);
     this.set('keyboardActivated', true);
+    //this.setActiveItem();
     this.set('hasLink', !!this.get('linkDirection'));
   },
-  Jwatcher: Ember.on(keyUp('KeyJ'), function() {
-    this.incrementProperty('activeItem');
-  }),
   upWatcher: Ember.on(keyUp('KeyK'), function() {
-    this.decrementProperty('activeItem');
+    this.moveUp();
   }),
   kWatcher: Ember.on(keyUp('ArrowUp'), function() {
-    this.decrementProperty('activeItem');
+    this.moveUp();
+  }),
+  Jwatcher: Ember.on(keyUp('KeyJ'), function() {
+    this.moveDown();
   }),
   downWatcher: Ember.on(keyUp('ArrowDown'), function() {
-    this.incrementProperty('activeItem');
+    this.moveDown();
   }),
+  moveUp(){
+    if(this.get('activeItem') > 0){
+      let activeItem = this.decrementProperty('activeItem');
+      let selectedObj = this.getSelected(activeItem);
+      this.sendSelectedItem(selectedObj);
+    }
+
+  },
+  moveDown(){
+    let contentArray = this.get('contentArray');
+    if(this.get('activeItem') < contentArray.length - 1){
+      let activeItem = this.incrementProperty('activeItem');
+      let selectedObj = this.getSelected(activeItem);
+      this.sendSelectedItem(selectedObj);
+    } else {
+      this.afterLastArrayItem()
+    }
+  },
+  getSelected(activeIndex){
+    return this.get('contentArray')[activeIndex];
+  },
+  sendSelectedItem(item){
+    if(this.get('sendItem')){
+      this.get('sendItem')(item);
+    }
+  },
+  afterLastArrayItem(){
+    if(this.get('afterLastItem')){
+      this.get('afterLastItem')();
+    }
+  }
 });

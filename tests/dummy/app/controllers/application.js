@@ -25,4 +25,18 @@ const obj11 =  {  id: 1, name: 'Bob' },
 export default Ember.Controller.extend({
   contentArray: [obj1, obj2, obj3, obj4, obj5, obj6, obj7, obj8, obj9, obj10],
   objContentArray: [obj11, obj22, obj33, obj44, obj55, obj66, obj77, obj88, obj99, obj110],
+  stringContentArray: [
+    'Greg Maddux',
+    'Rick Sutcliffe',
+    'Joe Girardi',
+    'Shawon Dunston',
+    'Mark Grace',
+    'Ryne Sandberg',
+    'Andre Dawson'],
+    parentMethodForChange(item){
+      console.log('method called in the controller on item change. Plus item: ', item);
+    },
+    parentMethodForBottomOfList(){
+      console.log('method called in the controller after pushing down on last item');
+    }
 });

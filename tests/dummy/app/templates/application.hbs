@@ -1,10 +1,26 @@
 <h2>
-  Relying on Index
+  No links - simple JavaScript Objects
 </h2>
-{{keyboard-navigable-list contentArray=contentArray objectKey="name"}}
+{{keyboard-navigable-list
+  contentArray=contentArray
+  objectKey="name"
+  afterLastItem=(action parentMethodForBottomOfList)
+  sendItem=(action parentMethodForChange)}}
 <h2>
-  Relying on Id
+  With link-to
 </h2>
-{{keyboard-navigable-list contentArray=objContentArray objectKey="name" activeItem=objContentArray.0.id linkDirection="people.show"}}
+{{keyboard-navigable-list
+  contentArray=objContentArray
+  objectKey="name"
+  linkDirection="people.show"
+  afterLastItem=(action parentMethodForBottomOfList)
+  sendItem=(action parentMethodForChange)}}
+<h2>
+  Just an Array of Strings
+</h2>
+{{keyboard-navigable-list
+  contentArray=stringContentArray
+  afterLastItem=(action parentMethodForBottomOfList)
+  sendItem=(action parentMethodForChange)}}
 
 {{outlet}}
