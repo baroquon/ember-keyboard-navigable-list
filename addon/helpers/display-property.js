@@ -14,7 +14,7 @@ export function displayProperty(params) {
   const obj  = params[0];
   const prop = params[1];
   if(typeof obj === "object" && !!prop){
-    return obj[prop];
+    return Ember.get(obj, prop);
   } else {
     return obj;
   }

@@ -1,5 +1,6 @@
 import Ember from 'ember';
 
+const Person = Ember.Object.extend({ alt: Ember.computed('name', 'id', function(){ return `${this.get('id')} ${this.get('name')}`}) })
 const obj1 =  { name: 'Bob' },
       obj2 =  { name: 'Larry' },
       obj3 =  { name: 'William' },
@@ -11,16 +12,16 @@ const obj1 =  { name: 'Bob' },
       obj9 =  { name: 'Dan' },
       obj10 = { name: 'Karen' };
 
-const obj11 =  {  id: 1, name: 'Bob' },
-      obj22 =  {  id: 2, name: 'Larry' },
-      obj33 =  {  id: 3, name: 'William' },
-      obj44 =  {  id: 4, name: 'Tim' },
-      obj55 =  {  id: 5, name: 'Sarah' },
-      obj66 =  {  id: 6, name: 'Brett' },
-      obj77 =  {  id: 7, name: 'Kristen' },
-      obj88 =  {  id: 8, name: 'Courtney' },
-      obj99 =  {  id: 9, name: 'Dan' },
-      obj110 = {  id: 10, name: 'Karen' };
+const obj11 =  Person.create({  id: 1, name: 'Bob'}),
+      obj22 =  Person.create({  id: 2, name: 'Larry'}),
+      obj33 =  Person.create({  id: 3, name: 'William'}),
+      obj44 =  Person.create({  id: 4, name: 'Tim'}),
+      obj55 =  Person.create({  id: 5, name: 'Sarah'}),
+      obj66 =  Person.create({  id: 6, name: 'Brett'}),
+      obj77 =  Person.create({  id: 7, name: 'Kristen'}),
+      obj88 =  Person.create({  id: 8, name: 'Courtney'}),
+      obj99 =  Person.create({  id: 9, name: 'Dan'}),
+      obj110 = Person.create({  id: 10, name: 'Karen'});
 
 export default Ember.Controller.extend({
   contentArray: [obj1, obj2, obj3, obj4, obj5, obj6, obj7, obj8, obj9, obj10],
