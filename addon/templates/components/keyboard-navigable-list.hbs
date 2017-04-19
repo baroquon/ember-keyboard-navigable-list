@@ -1,7 +1,13 @@
 <ul data-parent-ul>
   {{#each contentArray as |item index|}}
-    <li class="{{if (eq (id-or-index item index) activeItem) 'active' }}">
-      {{display-property item objectKey}}
-    </li>
+    {{#if hasLink}}
+      {{#link-to linkDirection item.id tagName='li'}}
+        {{display-property item objectKey}}
+      {{/link-to}}
+    {{else}}
+      <li class="{{if (eq (id-or-index item index) activeItem) 'active' }}">
+        {{display-property item objectKey}}
+      </li>
+    {{/if}}
   {{/each}}
 </ul>
