@@ -1,0 +1,7 @@
+<ul data-parent-ul>
+  {{#each contentArray as |item index|}}
+    <li class="{{if (eq (id-or-index item index) activeItem) 'active' }}">
+      {{display-property item objectKey}}
+    </li>
+  {{/each}}
+</ul>
