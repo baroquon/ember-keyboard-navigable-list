@@ -38,7 +38,7 @@ test('after the component loads the if there are no ids on the objects the first
 test('if linkDirection is set, hasLink is true and a link is present', function(assert) {
   this.set('theArray', [{ name: 'hello'}, {name: 'second item'}, {name: 'third item'}]);
 
-  this.render(hbs`{{keyboard-navigable-list contentArray=theArray objectKey="name"}}`);
+  this.render(hbs`{{keyboard-navigable-list contentArray=theArray objectKey="name" linkDirection='people.show'}}`);
 
-  assert.ok(this.$('ul[data-parent-ul] > li').first().hasClass('active'), 'the first item is active by default');
+  assert.equal(this.$('ul[data-parent-ul] > li:eq(0) > a').length, 1, 'if there is a linkDirection there is a link');
 });
