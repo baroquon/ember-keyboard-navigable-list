@@ -8,10 +8,11 @@ export default Ember.Component.extend(EKMixin, {
   activeItem: 0,
   contentArray: [],
   hasLink: false,
-  linkDirection: 'index',
+  linkDirection: null,
   init(){
     this._super(...arguments);
     this.set('keyboardActivated', true);
+    this.set('hasLink', !!this.get('linkDirection'));
   },
   Jwatcher: Ember.on(keyUp('KeyJ'), function() {
     this.incrementProperty('activeItem');
