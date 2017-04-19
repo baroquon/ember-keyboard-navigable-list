@@ -1,3 +1,5 @@
+![Build Status](https://travis-ci.org/baroquon/ember-keyboard-navigable-list.svg?branch=master)
+
 # ember-keyboard-navigable-list
 
 This is an Ember addon that takes a list and adds keyboard shortcuts to all ow you to navigate the list. `j` and `Down Arrow` move the active item down, `k` & `Up Array` move the active item up. This component can take an array of objects with a key for display or an array of strings. If given an array of objects with IDs you can add a link-to to each item in the array by passing in a `linkDirection` attribute.
