@@ -15,7 +15,7 @@ Thanks to [ember-keyboard](http://null-null-null.github.io/ember-keyboard/#/) ad
 In your template add the component:
 
 ```hbs
-  {{keyboard-navigable-list }}
+  {{keyboard-navigable-list contentArray=someArray}}
 ```
 
 ### A list of available attributes:
