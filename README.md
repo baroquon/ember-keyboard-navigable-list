@@ -14,11 +14,13 @@ Thanks to [ember-keyboard](http://null-null-null.github.io/ember-keyboard/#/) ad
 
 In your template add the component:
 
+### An inline component will look like this:
+
 ```hbs
   {{keyboard-navigable-list contentArray=someArray}}
 ```
 
-### A list of available attributes:
+#### A list of available attributes:
 
 * contentArray - (required) It is the array containing the items we will display.
 * objectKey - (optional) If you give the component an array of objects this value tells the component which of the object's properties to display:
@@ -26,6 +28,17 @@ In your template add the component:
 * sendItem - (optional) This is the function that will be called when you push the up/down/j/k keys. Example usage would be: `sendItem=(action parentMethodForChange)`
 * afterLastItem - (optional) This is the function that gets called the last item in the list is selected and you push down. This could be used to tie into a load more type function on the parent. An example of usage would be `afterLastItem=(action parentMethodForBottomOfList)`
 
+### You can also use it as a block level component:
+
+```hbs
+{{#keyboard-navigable-list contentArray=objContentArray
+                           afterLastItem=(action parentMethodForBottomOfList)
+                           sendItem=(action parentMethodForChange)
+                           as |person|}}
+  {{person.name}}
+{{/keyboard-navigable-list}}
+```
+When you use it as a block level component you should include `|as| someReference`. `someReference` will give you access to the individual item in the array.
 
 # Contributing
 

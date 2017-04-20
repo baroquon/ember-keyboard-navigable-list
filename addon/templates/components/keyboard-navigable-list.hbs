@@ -1,12 +1,16 @@
 <ul data-parent-ul>
   {{#each contentArray as |item index|}}
     <li class="{{if (eq index activeItem) 'active' }}">
-      {{#if hasLink}}
-        {{#link-to linkDirection item.id}}
-          {{display-property item objectKey}}
-        {{/link-to}}
+      {{#if hasBlock}}
+        {{yield item}}
       {{else}}
-        {{display-property item objectKey}}
+        {{#if hasLink}}
+          {{#link-to linkDirection item.id}}
+            {{display-property item objectKey}}
+          {{/link-to}}
+        {{else}}
+          {{display-property item objectKey}}
+        {{/if}}
       {{/if}}
     </li>
   {{/each}}

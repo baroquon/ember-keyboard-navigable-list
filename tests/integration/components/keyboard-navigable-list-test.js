@@ -42,3 +42,11 @@ test('if linkDirection is set, hasLink is true and a link is present', function(
 
   assert.equal(this.$('ul[data-parent-ul] > li:eq(0) > a').length, 1, 'if there is a linkDirection there is a link');
 });
+
+test('if used as a block level component it gives you access to the individual items in the array', function(assert) {
+  this.set('theArray', [{ name: 'hello'}, {name: 'second item'}, {name: 'third item'}]);
+
+  this.render(hbs`{{#keyboard-navigable-list contentArray=theArray as |person|}} {{person.name}} {{/keyboard-navigable-list}}`);
+
+  assert.equal(this.$('ul[data-parent-ul] > li:eq(0)').text().trim(), 'hello', 'we have access to the items from the yield');
+});

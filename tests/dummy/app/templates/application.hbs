@@ -23,4 +23,16 @@
   afterLastItem=(action parentMethodForBottomOfList)
   sendItem=(action parentMethodForChange)}}
 
+<h2>
+  With Block link-to
+</h2>
+{{#keyboard-navigable-list
+  contentArray=objContentArray
+  linkDirection="people.show"
+  afterLastItem=(action parentMethodForBottomOfList)
+  sendItem=(action parentMethodForChange)
+  as |person|}}
+  {{person.name}}
+{{/keyboard-navigable-list}}
+
 {{outlet}}
