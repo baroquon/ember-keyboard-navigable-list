@@ -27,12 +27,12 @@ test('if passed in an array contains an object key it displays that property on 
   assert.equal(this.$('ul[data-parent-ul] > li').last().text().trim(), 'third item', 'the last item is third item');
 });
 
-test('after the component loads the if there are no ids on the objects the first li has the active class by default', function(assert) {
+test('after the component loads no li item has the class of active', function(assert) {
   this.set('theArray', [{ name: 'hello'}, {name: 'second item'}, {name: 'third item'}]);
 
   this.render(hbs`{{keyboard-navigable-list contentArray=theArray objectKey="name"}}`);
 
-  assert.ok(this.$('ul[data-parent-ul] > li').first().hasClass('active'), 'the first item is active by default');
+  assert.equal(this.$('li.active').length, 0, 'by default no one is active');
 });
 
 test('if linkDirection is set, hasLink is true and a link is present', function(assert) {

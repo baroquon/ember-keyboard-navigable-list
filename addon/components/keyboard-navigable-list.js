@@ -5,7 +5,7 @@ import { EKMixin, keyUp } from 'ember-keyboard';
 export default Ember.Component.extend(EKMixin, {
   layout,
   objectKey: null,
-  activeItem: 0,
+  activeItem: -1,
   contentArray: [],
   hasLink: false,
   linkDirection: null,
@@ -14,7 +14,6 @@ export default Ember.Component.extend(EKMixin, {
   init(){
     this._super(...arguments);
     this.set('keyboardActivated', true);
-    //this.setActiveItem();
     this.set('hasLink', !!this.get('linkDirection'));
   },
   upWatcher: Ember.on(keyUp('KeyK'), function() {
