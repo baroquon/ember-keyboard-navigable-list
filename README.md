@@ -40,7 +40,7 @@ In your template add the component:
 ```
 When you use it as a block level component you should include `as |someReference|`. `someReference` will give you access to the individual item in the array.
 
-# Contributing
+## Contributing
 
 * Fork this this repository
 * `git clone <local-repository-url>`
