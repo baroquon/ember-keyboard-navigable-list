@@ -43,7 +43,7 @@ export default Ember.Component.extend(EKMixin, {
       let selectedObj = this.getSelected(activeItem);
       this.sendSelectedItem(selectedObj);
     } else {
-      this.afterLastArrayItem()
+      this.afterLastArrayItem(selectedObj)
     }
   },
   getSelected(activeIndex){
