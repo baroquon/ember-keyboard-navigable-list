@@ -38,12 +38,13 @@ export default Ember.Component.extend(EKMixin, {
   },
   moveDown(){
     let contentArray = this.get('contentArray');
-    if(this.get('activeItem') < contentArray.length - 1){
+    let active = this.get('activeItem');
+    if(active < contentArray.length - 1){
       let activeItem = this.incrementProperty('activeItem');
       let selectedObj = this.getSelected(activeItem);
       this.sendSelectedItem(selectedObj);
     } else {
-      this.afterLastArrayItem(selectedObj)
+      this.afterLastArrayItem(active)
     }
   },
   getSelected(activeIndex){
