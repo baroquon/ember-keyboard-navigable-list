@@ -1,6 +1,6 @@
 <ul data-parent-ul>
   {{#each contentArray as |item index|}}
-    <li class="{{if (eq index activeItem) 'active' }}">
+    <li class="{{if (eq index activeItem) 'active' }}" data-item-index={{index}}>
       {{#if hasBlock}}
         {{yield item}}
       {{else}}

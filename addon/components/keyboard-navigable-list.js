@@ -28,6 +28,10 @@ export default Ember.Component.extend(EKMixin, {
   downWatcher: Ember.on(keyUp('ArrowDown'), function() {
     this.moveDown();
   }),
+  click(e){
+    this.set('activeItem', Number(e.target.dataset.itemIndex));
+    return true;
+  },
   moveUp(){
     if(this.get('activeItem') > 0){
       let activeItem = this.decrementProperty('activeItem');
