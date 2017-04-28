@@ -29,7 +29,8 @@ export default Ember.Component.extend(EKMixin, {
     this.moveDown();
   }),
   click(e){
-    this.set('activeItem', Number(e.target.dataset.itemIndex));
+    let $e = Ember.$(e.target);
+    this.set('activeItem', Number($e.closest('[data-item-index]').data('item-index')));
     return true;
   },
   moveUp(){
