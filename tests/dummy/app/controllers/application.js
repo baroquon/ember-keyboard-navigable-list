@@ -39,5 +39,10 @@ export default Ember.Controller.extend({
     },
     parentMethodForBottomOfList(){
       console.log('method called in the controller after pushing down on last item');
+    },
+    actions: {
+      nestedAction(name){
+        console.log(`this is the action in the application controller. called for ${name}`);
+      }
     }
 });

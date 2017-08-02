@@ -35,4 +35,19 @@
   {{person.name}}
 {{/keyboard-navigable-list}}
 
+<h2>
+  Block Usage with multiple elements in the block and an action
+</h2>
+{{#keyboard-navigable-list
+  contentArray=objContentArray
+  afterLastItem=(action parentMethodForBottomOfList)
+  sendItem=(action parentMethodForChange)
+  as |person|}}
+  <div>
+    <button {{action "nestedAction" person.name}}>
+      {{person.name}}
+    </button>
+  </div>
+{{/keyboard-navigable-list}}
+
 {{outlet}}

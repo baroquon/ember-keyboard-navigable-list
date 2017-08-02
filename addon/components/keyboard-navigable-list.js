@@ -31,11 +31,23 @@ export default Ember.Component.extend(EKMixin, {
   click(e){
     // if a user clicks on an item, we want to intercept the click
     // and update the activeItem with the item that was clicked on.
-    let $e = Ember.$(e.target);
+    let target = e.target;
+
+    // if the target has our index we can move on, if it doesn't we need to check it's parentNode
+    function hasDataAttr(innerTarget){
+      if(innerTarget.hasAttribute('data-item-index')){
+        return innerTarget;
+      } else {
+        return hasDataAttr(innerTarget.parentNode);
+      }
+    }
+
+    let finalTarget = hasDataAttr(target);
+
     // here we are just setting the activeItem to the index of the
     // item that was clicked. We store the index on the data-item-index
     // attr which we get from the event passed in from the click.
-    this.set('activeItem', Number($e.closest('[data-item-index]').data('item-index')));
+    this.set('activeItem', Number(finalTarget.getAttribute('data-item-index')));
     return true;
   },
   moveUp(){
