@@ -1,1 +1,0 @@
-export { default } from 'ember-keyboard-navigable-list/components/keyboard-navigable-list';
