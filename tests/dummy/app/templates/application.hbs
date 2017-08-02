@@ -1,53 +1,139 @@
-<h2>
-  No links - simple JavaScript Objects
-</h2>
-{{keyboard-navigable-list
-  contentArray=contentArray
-  objectKey="name"
-  afterLastItem=(action parentMethodForBottomOfList)
-  sendItem=(action parentMethodForChange)}}
-<h2>
-  With link-to
-</h2>
-{{keyboard-navigable-list
-  contentArray=objContentArray
-  objectKey="alt"
-  linkDirection="people.show"
-  afterLastItem=(action parentMethodForBottomOfList)
-  sendItem=(action parentMethodForChange)}}
-<h2>
-  Just an Array of Strings
-</h2>
-{{keyboard-navigable-list
-  contentArray=stringContentArray
-  afterLastItem=(action parentMethodForBottomOfList)
-  sendItem=(action parentMethodForChange)}}
-
-<h2>
-  With Block link-to
-</h2>
-{{#keyboard-navigable-list
-  contentArray=objContentArray
-  linkDirection="people.show"
-  afterLastItem=(action parentMethodForBottomOfList)
-  sendItem=(action parentMethodForChange)
-  as |person|}}
-  {{person.name}}
-{{/keyboard-navigable-list}}
-
-<h2>
-  Block Usage with multiple elements in the block and an action
-</h2>
-{{#keyboard-navigable-list
-  contentArray=objContentArray
-  afterLastItem=(action parentMethodForBottomOfList)
-  sendItem=(action parentMethodForChange)
-  as |person|}}
-  <div>
-    <button {{action "nestedAction" person.name}}>
-      {{person.name}}
-    </button>
+<div class='container-fluid'>
+  <div class='col-xs-12'>
+    <h2>
+      No links - simple JavaScript Objects
+    </h2>
   </div>
-{{/keyboard-navigable-list}}
+  <div class='col-md-4'>
+    <h3>The Result</h3>
+    {{keyboard-navigable-list
+      contentArray=contentArray
+      objectKey="name"
+      afterLastItem=(action parentMethodForBottomOfList)
+      sendItem=(action parentMethodForChange)}}
+  </div>
+  <div class='col-md-8'>
+    <h3>The Code</h3>
+    <code>
+    \{{keyboard-navigable-list
+      contentArray=contentArray
+      objectKey="name"
+      afterLastItem=(action parentMethodForBottomOfList)
+      sendItem=(action parentMethodForChange)}}
+    </code>
+  </div>
+  <div class='col-xs-12'>
+    <h2>
+      With link-to
+    </h2>
+  </div>
+  <div class='col-md-4'>
+    <h3>The Result</h3>
+      {{keyboard-navigable-list
+        contentArray=objContentArray
+        objectKey="alt"
+        linkDirection="people.show"
+        afterLastItem=(action parentMethodForBottomOfList)
+        sendItem=(action parentMethodForChange)}}
+  </div>
+  <div class='col-md-8'>
+    <h3>The Code</h3>
+    <code>
+      \{{keyboard-navigable-list
+        contentArray=objContentArray
+        objectKey="alt"
+        linkDirection="people.show"
+        afterLastItem=(action parentMethodForBottomOfList)
+        sendItem=(action parentMethodForChange)}}
+    </code>
+  </div>
+  <div class='col-xs-12'>
+    <h2>
+      Just an Array of Strings
+    </h2>
+  </div>
+  <div class='col-md-4'>
+    <h3>The Result</h3>
+    {{keyboard-navigable-list
+      contentArray=stringContentArray
+      afterLastItem=(action parentMethodForBottomOfList)
+      sendItem=(action parentMethodForChange)}}
+  </div>
+  <div class='col-md-8'>
+    <h3>The Code</h3>
+    <code>
+      \{{keyboard-navigable-list
+        contentArray=stringContentArray
+        afterLastItem=(action parentMethodForBottomOfList)
+        sendItem=(action parentMethodForChange)}}
+    </code>
+  </div>
 
-{{outlet}}
+  <div class='col-xs-12'>
+    <h2>
+      With Block link-to
+    </h2>
+  </div>
+  <div class='col-md-4'>
+    <h3>The Result</h3>
+    {{#keyboard-navigable-list
+      contentArray=objContentArray
+      linkDirection="people.show"
+      afterLastItem=(action parentMethodForBottomOfList)
+      sendItem=(action parentMethodForChange)
+      as |person|}}
+      {{person.name}}
+    {{/keyboard-navigable-list}}
+  </div>
+  <div class='col-md-8'>
+    <h3>The Code</h3>
+    <code>
+      \{{#keyboard-navigable-list
+        contentArray=objContentArray
+        linkDirection="people.show"
+        afterLastItem=(action parentMethodForBottomOfList)
+        sendItem=(action parentMethodForChange)
+        as |person|}}
+        \{{person.name}}
+      \{{/keyboard-navigable-list}}
+    </code>
+  </div>
+
+  <div class='col-xs-12'>
+    <h2>
+      Block Usage with multiple elements in the block and an action
+    </h2>
+  </div>
+  <div class='col-md-4'>
+    <h3>The Result</h3>
+    {{#keyboard-navigable-list
+      contentArray=objContentArray
+      afterLastItem=(action parentMethodForBottomOfList)
+      sendItem=(action parentMethodForChange)
+      as |person|}}
+      <div>
+        <button {{action "nestedAction" person.name}}>
+          {{person.name}}
+        </button>
+      </div>
+    {{/keyboard-navigable-list}}
+  </div>
+  <div class='col-md-8'>
+    <h3>The Code</h3>
+    <code>
+      \{{#keyboard-navigable-list
+        contentArray=objContentArray
+        afterLastItem=(action parentMethodForBottomOfList)
+        sendItem=(action parentMethodForChange)
+        as |person|}}
+        &lt;div&gt;
+          &lt;button \{{action "nestedAction" person.name}}&gt;
+            \{{person.name}}
+          &lt;/button&gt;
+        &lt;/div&gt;
+      \{{/keyboard-navigable-list}}
+    </code>
+  </div>
+
+  {{outlet}}
+</div>

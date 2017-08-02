@@ -6,6 +6,8 @@ This is an Ember addon that takes a list and adds keyboard shortcuts to all ow y
 
 Thanks to [ember-keyboard](http://null-null-null.github.io/ember-keyboard/#/) addon for making the key events part of this super easy.
 
+[Here is the demo page!](https://baroquon.github.io/ember-keyboard-navigable-list/)
+
 ## Installation
 
 `ember install ember-keyboard-navigable-list`
@@ -25,7 +27,7 @@ In your template add the component:
 * contentArray - (required) It is the array containing the items we will display.
 * objectKey - (optional) If you give the component an array of objects this value tells the component which of the object's properties to display:
 * linkDirection - (optional) If you want your items to contain links this is where you would pass the link path. This string should correspond to the path you would pass the `link-to` helper. This will pass the object's id as a param to the link-to.
-* activeItem - (optional) This allows you to manually set what item in the array is active. It is based on the items location in the array and it is zero indexed. The default value is -1 (so when you first push down, the active item becomes the first item in the array and the activeItem property's value becomes 0). 
+* activeItem - (optional) This allows you to manually set what item in the array is active. It is based on the items location in the array and it is zero indexed. The default value is -1 (so when you first push down, the active item becomes the first item in the array and the activeItem property's value becomes 0).
 * sendItem - (optional) This is the function that will be called when you push the up/down/j/k keys. Example usage would be: `sendItem=(action parentMethodForChange)`
 * afterLastItem - (optional) This is the function that gets called the last item in the list is selected and you push down. This could be used to tie into a load more type function on the parent. An example of usage would be `afterLastItem=(action parentMethodForBottomOfList)`
 
