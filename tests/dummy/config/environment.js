@@ -43,7 +43,8 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.rootURL = '/ember-keyboard-navigable-list/';
+    ENV.location = 'hash';
   }
 
   return ENV;
