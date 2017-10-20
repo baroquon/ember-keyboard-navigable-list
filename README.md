@@ -49,7 +49,6 @@ When you use it as a block level component you should include `as |someReference
 * `git clone <local-repository-url>`
 * `cd ember-keyboard-navigable-list`
 * `npm install`
-* `bower install`
 * make changes and commit with a good commit message
 * open a PR
 

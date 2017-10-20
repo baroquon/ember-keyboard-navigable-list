@@ -1,4 +1,5 @@
-import Ember from 'ember';
+import { helper } from '@ember/component/helper';
+import { get } from '@ember/object';
 /**
   Helper that returns a specific property value of an object
   ```javascript
@@ -14,10 +15,10 @@ export function displayProperty(params) {
   const obj  = params[0];
   const prop = params[1];
   if(typeof obj === "object" && !!prop){
-    return Ember.get(obj, prop);
+    return get(obj, prop);
   } else {
     return obj;
   }
 }
 
-export default Ember.Helper.helper(displayProperty);
+export default helper(displayProperty);

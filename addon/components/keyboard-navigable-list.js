@@ -1,8 +1,9 @@
-import Ember from 'ember';
+import { on } from '@ember/object/evented';
+import Component from '@ember/component';
 import layout from '../templates/components/keyboard-navigable-list';
 import { EKMixin, keyUp } from 'ember-keyboard';
 
-export default Ember.Component.extend(EKMixin, {
+export default Component.extend(EKMixin, {
   layout,
   objectKey: null,
   activeItem: -1,
@@ -16,16 +17,16 @@ export default Ember.Component.extend(EKMixin, {
     this.set('keyboardActivated', true);
     this.set('hasLink', !!this.get('linkDirection'));
   },
-  upWatcher: Ember.on(keyUp('KeyK'), function() {
+  upWatcher: on(keyUp('KeyK'), function() {
     this.moveUp();
   }),
-  kWatcher: Ember.on(keyUp('ArrowUp'), function() {
+  kWatcher: on(keyUp('ArrowUp'), function() {
     this.moveUp();
   }),
-  Jwatcher: Ember.on(keyUp('KeyJ'), function() {
+  Jwatcher: on(keyUp('KeyJ'), function() {
     this.moveDown();
   }),
-  downWatcher: Ember.on(keyUp('ArrowDown'), function() {
+  downWatcher: on(keyUp('ArrowDown'), function() {
     this.moveDown();
   }),
   click(e){

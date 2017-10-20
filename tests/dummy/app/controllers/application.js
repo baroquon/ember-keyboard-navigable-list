@@ -1,6 +1,7 @@
-import Ember from 'ember';
+import Controller from '@ember/controller';
+import EmberObject, { computed } from '@ember/object';
 
-const Person = Ember.Object.extend({ alt: Ember.computed('name', 'id', function(){ return `${this.get('id')} ${this.get('name')}`}) })
+const Person = EmberObject.extend({ alt: computed('name', 'id', function(){ return `${this.get('id')} ${this.get('name')}`}) })
 const obj1 =  { name: 'Bob' },
       obj2 =  { name: 'Larry' },
       obj3 =  { name: 'William' },
@@ -23,7 +24,7 @@ const obj11 =  Person.create({  id: 1, name: 'Bob'}),
       obj99 =  Person.create({  id: 9, name: 'Dan'}),
       obj110 = Person.create({  id: 10, name: 'Karen'});
 
-export default Ember.Controller.extend({
+export default Controller.extend({
   contentArray: [obj1, obj2, obj3, obj4, obj5, obj6, obj7, obj8, obj9, obj10],
   objContentArray: [obj11, obj22, obj33, obj44, obj55, obj66, obj77, obj88, obj99, obj110],
   stringContentArray: [
